@@ -251,7 +251,7 @@ install_graphic(){
 
 install_desktop(){
     color yellow "Choose the desktop you want to use"
-    select DESKTOP in "KDE" "Gnome" "Lxde" "Lxqt" "Mate" "Xfce" "Deepin" "Budgie" "Cinnamon" "notinstall";do
+    select DESKTOP in "KDE" "Gnome" "Lxde" "Lxqt" "Mate" "Xfce" "Deepin" "Budgie" "Cinnamon" "Custom";do
         case $DESKTOP in
             "KDE")
                 echo "select kde install full or custom"
@@ -323,7 +323,7 @@ install_desktop(){
                 systemctl enable lightdm
                 break
             ;;
-            "notinstall")
+            "Custom")
                 break
             ;;
             *)
