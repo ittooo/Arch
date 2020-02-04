@@ -11,9 +11,13 @@
 
 #### 使用方法：
 1. 键盘布局
-2. 网络 dhcpd/wifi-menu
-3. 时间 timedatectl set-ntp true (使用 timedatectl status 检查服务状态)
-4. 进入live系统连接网络后执行：
+# ls /usr/share/kbd/keymaps/**/*.map.gz
+# loadkeys us
+2. 设置字体
+# setfont /usr/share/kbd/consolefonts/LatGrkCyr-12x22.psfu.gz
+3. 网络 dhcpd/wifi-menu
+4. 时间 timedatectl set-ntp true (使用 timedatectl status 检查服务状态)
+5. 进入live系统连接网络后执行：
 ```
 wget https://github.com/ittooo/arch/raw/master/live.sh
 bash live.sh
@@ -22,4 +26,3 @@ bash live.sh
 *注意查看带有颜色的提示*
 
 安装完成后记得进入/root文件夹删除config.sh文件
-
