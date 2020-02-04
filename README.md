@@ -11,10 +11,15 @@
 
 #### 使用方法：
 1. 键盘布局
-# ls /usr/share/kbd/keymaps/**/*.map.gz
-# loadkeys us
+```
+默认为 us（美式键盘映射）
+ls /usr/share/kbd/keymaps/**/*.map.gz
+loadkeys
+```
 2. 设置字体
-# setfont /usr/share/kbd/consolefonts/LatGrkCyr-12x22.psfu.gz
+```
+setfont /usr/share/kbd/consolefonts/LatGrkCyr-12x22.psfu.gz
+```
 3. 网络 dhcpd/wifi-menu
 4. 时间 timedatectl set-ntp true (使用 timedatectl status 检查服务状态)
 5. 进入live系统连接网络后执行：
