@@ -47,7 +47,7 @@ config_locale(){
     select LNAG in "en_US.UTF-8" "zh_CN.UTF-8";do
         echo "$LNAG UTF-8" > /etc/locale.gen
         locale-gen
-        echo LANG=en_US.UTF-8 > /etc/locale.conf
+        echo LANG=$LANG > /etc/locale.conf
         break
     done
 }
