@@ -211,8 +211,22 @@ install_graphic(){
                 break
             ;;
             "Intel and Nvidia")
-                pacman -S --noconfirm optimus-manager bbswitch -y
-                systemctl enable optimus-manager
+                select double in "optimus-manager" "nvidia-prime";do
+                    case $double in
+                        "optimus-manager")
+                            pacman -S --noconfirm optimus-manager bbswitch -y
+                            systemctl enable optimus-manager
+                            break
+                            ;;
+                        "nvidia-prime")
+                            pacman -S --noconfirm nvidia-prime -y
+                            break
+                            ;;
+                            *)
+                            color red "Error ! Please input the correct num"
+                        ;;
+                        esac
+                    done
                 color yellow "Version of nvidia-driver to install"
                 select NVIDIA in "GeForce-8 and newer" "GeForce-6/7" "Older";do
                     case $NVIDIA in
