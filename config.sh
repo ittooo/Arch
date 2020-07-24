@@ -285,7 +285,7 @@ install_desktop(){
 				systemsettings user-manager xdg-desktop-portal-kde gwenview kamera kdegraphics-mobipocket kdegraphics-thumbnailers \
 				kipi-plugins spectacle dolphin kdialog keditbookmarks kfind khelpcenter ark filelight kcalc \
 				kdebugsettings kdf kwalletmanager print-manager latte-dock ksystemlog systemd-kcm kdeconnect kcolorchooser \
-				kolourpaint kbackup sddm konsole
+				kolourpaint kbackup sddm konsole powerdevil
 				systemctl enable sddm
                 		break
 			;;
