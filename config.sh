@@ -132,7 +132,7 @@ install_app(){
     if [ "$TMP" == "y" ];then
         sed -i '/archlinuxcn/d' /etc/pacman.conf
         sed -i '/archlinux-cn/d' /etc/pacman.conf
-        select MIRROR in "USTC" "TUNA" "163";do
+        select MIRROR in "USTC" "TUNA" "163" "Tencent";do
             case $MIRROR in
                 "USTC")
                     echo -e "[archlinuxcn]\nServer = https://mirrors.ustc.edu.cn/archlinuxcn/\$arch" >> /etc/pacman.conf
@@ -143,7 +143,11 @@ install_app(){
                     break
                 ;;
                 "163")
-                    echo -e "[archlinuxcn]\nServer = http://mirrors.163.com/archlinux-cn/\$arch" >> /etc/pacman.conf
+                    echo -e "[archlinuxcn]\nServer = https://mirrors.163.com/archlinux-cn/\$arch" >> /etc/pacman.conf
+                    break
+                ;;
+                "Tencent")
+                    echo -e "[archlinuxcn]\nServer = https://mirrors.cloud.tencent.com/archlinux-cn/\$arch" >> /etc/pacman.conf
                     break
                 ;;
                 *)

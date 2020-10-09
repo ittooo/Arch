@@ -133,7 +133,8 @@ install(){
         fi
         sed -i 's/#Server/Server/g' /etc/pacman.d/mirrorlist.new
         rm -f rankmirrors.sh
-        wget https://raw.githubusercontent.com/ittooo/arch/master/rankmirrors.sh
+#       wget https://raw.githubusercontent.com/ittooo/arch/master/rankmirrors.sh
+        wget https://gitee.com/ittooo/arch/raw/master/rankmirrors.sh
         bash rankmirrors.sh -n 3 /etc/pacman.d/mirrorlist.new > /etc/pacman.d/mirrorlist
         chmod +r /etc/pacman.d/mirrorlist
 	break
@@ -151,7 +152,8 @@ done
 
 config(){
     rm -rf /mnt/root/config.sh
-    wget https://raw.githubusercontent.com/ittooo/arch/master/config.sh -O /mnt/root/config.sh
+#   wget https://raw.githubusercontent.com/ittooo/arch/master/config.sh -O /mnt/root/config.sh
+    wget https://gitee.com/ittooo/arch/raw/master/config.sh -O /mnt/root/config.sh
     chmod +x /mnt/root/config.sh
     arch-chroot /mnt /root/config.sh $ROOT $boot
 }
