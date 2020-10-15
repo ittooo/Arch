@@ -286,7 +286,7 @@ install_desktop(){
 				kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass \
 				ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-desktop \
 				plasma-integration plasma-nm plasma-pa plasma-workspace polkit-kde-agent powerdevil sddm-kcm \
-				systemsettings plasma-desktop xdg-desktop-portal-kde gwenview kamera kdegraphics-mobipocket kdegraphics-thumbnailers \
+				systemsettings xdg-desktop-portal-kde gwenview kamera kdegraphics-mobipocket kdegraphics-thumbnailers \
 				kipi-plugins spectacle dolphin kdialog keditbookmarks kfind khelpcenter ark filelight kcalc \
 				kdebugsettings kdf kwalletmanager print-manager latte-dock ksystemlog systemd-kcm kdeconnect kcolorchooser \
 				kolourpaint kbackup sddm konsole powerdevil
