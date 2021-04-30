@@ -145,7 +145,7 @@ done
         echo $mirror > /etc/pacman.d/mirrorlist
     break
     done
-    pacstrap /mnt base base-devel linux
+    pacstrap /mnt base base-devel linux-zen
     genfstab -U /mnt >> /mnt/etc/fstab
 
 }
