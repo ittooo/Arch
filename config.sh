@@ -282,13 +282,13 @@ install_desktop(){
                 		break
 			;;
                         "custom")
-				pacman -S breeze breeze-gtk bluedevil drkonqi kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration \
-				kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass \
-				ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-desktop \
+				pacman -S breeze breeze-gtk oxygen bluedevil drkonqi kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration \
+				kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit kscreen kscreenlocker ksshaskpass \
+				ksysguard kwallet-pam kwayland-integration plasma-wayland-session egl-wayland kwin kwrited libkscreen libksysguard milou plasma-desktop \
 				plasma-integration plasma-nm plasma-pa plasma-workspace polkit-kde-agent powerdevil sddm-kcm \
 				systemsettings xdg-desktop-portal-kde gwenview kamera kdegraphics-mobipocket kdegraphics-thumbnailers \
 				kipi-plugins spectacle dolphin kdialog keditbookmarks kfind khelpcenter ark filelight kcalc \
-				kdebugsettings kdf kwalletmanager print-manager latte-dock ksystemlog systemd-kcm kdeconnect kcolorchooser \
+				kdebugsettings kdf kwalletmanager print-manager latte-dock ksystemlog kdeconnect kcolorchooser \
 				kolourpaint kbackup sddm konsole powerdevil colord-kde
 				systemctl enable sddm
                 		break
