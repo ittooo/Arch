@@ -276,8 +276,8 @@ install_desktop(){
                 select kdemode in "full" "custom";do
                     case $kdemode in
                         "full")
-				pacman -S plasma kdebase kdeutils kdegraphics sddm
-                # optimus-manager-qt-kde
+				pacman -S plasma-meta konsole kate dolphin ark sddm plasma-wayland-session egl-wayland
+                		# optimus-manager-qt-kde
 				systemctl enable sddm
                 		break
 			;;
