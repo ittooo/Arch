@@ -282,7 +282,7 @@ install_desktop(){
                 		break
 			;;
                         "custom")
-				pacman -S breeze breeze-gtk oxygen bluedevil drkonqi kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration \
+				pacman -S breeze breeze-gtk bluedevil drkonqi kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration \
 				kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit kscreen kscreenlocker ksshaskpass \
 				ksysguard kwallet-pam kwayland-integration plasma-wayland-session egl-wayland kwin kwrited libkscreen libksysguard milou plasma-desktop \
 				plasma-integration plasma-nm plasma-pa plasma-workspace polkit-kde-agent powerdevil sddm-kcm \
