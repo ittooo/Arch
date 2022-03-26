@@ -45,8 +45,11 @@ config_locale(){
     hwclock --systohc --utc
     color yellow "Choose your language"
     select LNAG in "en_GB.UTF-8" "zh_CN.UTF-8";do
-        echo "$LNAG UTF-8" > /etc/locale.gen
-        echo -e "$LNAG UTF-8\nen_GB.UTF-8" > /etc/locale.gen
+        if [ $LANG == "zh_CN.UTF-8" ];then
+            echo -e "$LNAG UTF-8\nen_GB.UTF-8" > /etc/locale.gen
+        else
+            echo "$LNAG UTF-8" > /etc/locale.gen
+        fi
         locale-gen
         echo LANG=en_GB.UTF-8 > /etc/locale.conf
         break
@@ -170,7 +173,7 @@ install_app(){
             cd ..
             rm -rf package-query paru"
         fi
-        pacman -S --noconfirm networkmanager  ttf-monaco ttf-lxgw-wenkai
+        pacman -S --noconfirm networkmanager ttf-monaco ttf-lxgw-wenkai
         systemctl enable NetworkManager
 }
 
@@ -186,26 +189,28 @@ install_bluetooth(){
 
 install_graphic(){
     color yellow "What is your video graphic card?"
-    select GPU in "Intel" "Nvidia" "Intel and Nvidia" "AMD";do
+    select GPU in "AMD" "Intel" "Nvidia" "Intel and Nvidia" "VirtualBox";do
         case $GPU in
+            "AMD")
+                pacman -S --noconfirm xf86-video-amdgpu vulkan-radeon -y  # xf86-video-ati
+                pacman -S --noconfirm mesa libva-mesa-driver -y
+                break
+            ;;
             "Intel")
-                pacman -S --noconfirm xf86-video-intel -y
+                pacman -S --noconfirm libva-intel-driver intel-media-driver vulkan-intel -y #xf86-video-intel
+                pacman -S --noconfirm mesa -y #libva-mesa-driver
                 break
             ;;
             "Nvidia")
                 color yellow "Version of nvidia-driver to install"
-                select NVIDIA in "GeForce-8 and newer" "GeForce-6/7" "Older";do
+                select NVIDIA in "Open source" "Proprietary";do
                     case $NVIDIA in
-                        "GeForce-8 and newer")
-                            pacman -S --noconfirm nvidia -y
+                        "Open source")
+                            pacman -S --noconfirm xf86-video-nouveau mesa libva-mesa-driver -y
                             break
                         ;;
-                        "GeForce-6/7")
-                            pacman -S --noconfirm nvidia-304xx -y
-                            break
-                        ;;
-                        "Older")
-                            pacman -S --noconfirm nvidia-340xx -y
+                        "Proprietary")
+                            pacman -S --noconfirm nvidia nvidia-utils -y
                             break
                         ;;
                         *)
@@ -216,6 +221,9 @@ install_graphic(){
                 break
             ;;
             "Intel and Nvidia")
+                pacman -S --noconfirm libva-intel-driver intel-media-driver vulkan-intel -y
+                pacman -S --noconfirm mesa libva-mesa-driver -y
+                pacman -S --noconfirm nvidia nvidia-utils -y
                 select double in "optimus-manager" "nvidia-prime";do
                     case $double in
                         "optimus-manager")
@@ -232,30 +240,10 @@ install_graphic(){
                         ;;
                         esac
                     done
-                color yellow "Version of nvidia-driver to install"
-                select NVIDIA in "GeForce-8 and newer" "GeForce-6/7" "Older";do
-                    case $NVIDIA in
-                        "GeForce-8 and newer")
-                            pacman -S --noconfirm nvidia -y
-                            break
-                        ;;
-                        "GeForce-6/7")
-                            pacman -S --noconfirm nvidia-304xx -y
-                            break
-                        ;;
-                        "Older")
-                            pacman -S --noconfirm nvidia-340xx -y
-                            break
-                        ;;
-                        *)
-                            color red "Error ! Please input the correct num"
-                        ;;
-                    esac
-                done
                 break
             ;;
-            "AMD")
-                pacman -S --noconfirm xf86-video-ati -y
+            "VirtualBox")
+                pacman -S --noconfirm xf86-video-vmware mesa -y
                 break
             ;;
             *)
