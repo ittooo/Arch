@@ -127,14 +127,14 @@ install(){
     select COUNTRY in "AU" "AT" "BD" "BY" "BE" "BA" "BR" "BG" "CA" "CL" "CN" "CO" "HR" "CZ" "DK" "EC" "FI" "FR" "DE" "GR" "HK" "HU" "IS" "IN" "ID" "IR" "IE" "IL" "IT" "JP" "KZ" "LV" "LT" "LU" "MK" "MX" "AN" "NC" "NZ" "NO" "PH" "PL" "PT" "QA" "RO" "RU" "RS" "SG" "SK" "SI" "ZA" "KR" "ES" "SE" "CH" "TW" "TH" "TR" "UA" "GB" "US" "VN";do
         mv /etc/pacman.d/mirrorlist /etc/mirrorlist.bak
         color green "Generating mirror list , Please wait"
-        wget https://www.archlinux.org/mirrorlist/\?country=$COUNTRY\&protocol=https -O /etc/pacman.d/mirrorlist.new
+        curl "https://archlinux.org/mirrorlist/?country=$COUNTRY&protocol=https&use_mirror_status=on" -o /etc/pacman.d/mirrorlist.new
         if (! grep -q https /etc/pacman.d/mirrorlist.new);then
-            wget https://www.archlinux.org/mirrorlist/\?country=$COUNTRY\&protocol=http -O /etc/pacman.d/mirrorlist.new
+            curl "https://www.archlinux.org/mirrorlist/?country=$COUNTRY&protocol=http" -o /etc/pacman.d/mirrorlist.new
         fi
         sed -i 's/#Server/Server/g' /etc/pacman.d/mirrorlist.new
         rm -f rankmirrors.sh
-#       wget https://raw.githubusercontent.com/ittooo/arch/master/rankmirrors.sh
-        wget https://gitee.com/ittooo/arch/raw/master/rankmirrors.sh
+#       curl -O https://raw.githubusercontent.com/ittooo/arch/master/rankmirrors.sh
+        curl -O https://gitee.com/ittooo/arch/raw/master/rankmirrors.sh
         bash rankmirrors.sh -n 3 /etc/pacman.d/mirrorlist.new > /etc/pacman.d/mirrorlist
         chmod +r /etc/pacman.d/mirrorlist
 	break
@@ -152,8 +152,8 @@ done
 
 config(){
     rm -rf /mnt/root/config.sh
-#   wget https://raw.githubusercontent.com/ittooo/arch/master/config.sh -O /mnt/root/config.sh
-    wget https://gitee.com/ittooo/arch/raw/master/config.sh -O /mnt/root/config.sh
+#   curl https://raw.githubusercontent.com/ittooo/arch/master/config.sh -o /mnt/root/config.sh
+    curl https://gitee.com/ittooo/arch/raw/master/config.sh -o /mnt/root/config.sh
     chmod +x /mnt/root/config.sh
     arch-chroot /mnt /root/config.sh $ROOT $boot
 }
