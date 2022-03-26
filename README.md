@@ -24,8 +24,8 @@ setfont /usr/share/kbd/consolefonts/LatGrkCyr-12x22.psfu.gz
 4. 时间 timedatectl set-ntp true (使用 timedatectl status 检查服务状态)
 5. 进入live系统连接网络后执行：
 ```
-wget https://github.com/ittooo/arch/raw/master/live.sh
-wget https://gitee.com/ittooo/arch/raw/master/live.sh
+curl -O https://github.com/ittooo/arch/raw/master/live.sh
+curl -O https://gitee.com/ittooo/arch/raw/master/live.sh
 bash live.sh
 ```
 
