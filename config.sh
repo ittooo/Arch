@@ -44,10 +44,11 @@ config_locale(){
     done
     hwclock --systohc --utc
     color yellow "Choose your language"
-    select LNAG in "en_US.UTF-8" "zh_CN.UTF-8";do
+    select LNAG in "en_GB.UTF-8" "zh_CN.UTF-8";do
         echo "$LNAG UTF-8" > /etc/locale.gen
+        echo -e "$LNAG UTF-8\nen_GB.UTF-8" > /etc/locale.gen
         locale-gen
-        echo LANG=en_US.UTF-8 > /etc/locale.conf
+        echo LANG=en_GB.UTF-8 > /etc/locale.conf
         break
     done
 }
