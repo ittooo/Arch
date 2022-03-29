@@ -46,9 +46,9 @@ config_locale(){
     color yellow "Choose your language"
     select LNAG in "en_GB.UTF-8" "zh_CN.UTF-8";do
         if [ $LANG == "zh_CN.UTF-8" ];then
-            echo -e "$LNAG UTF-8\nen_GB.UTF-8 UTF-8" > /etc/locale.gen
+            echo -e "$LNAG UTF-8\nen_GB.UTF-8 UTF-8" >> /etc/locale.gen
         else
-            echo "$LNAG UTF-8" > /etc/locale.gen
+            echo "$LNAG UTF-8" >> /etc/locale.gen
         fi
         locale-gen
         echo LANG=en_GB.UTF-8 > /etc/locale.conf
