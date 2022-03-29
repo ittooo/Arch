@@ -46,7 +46,7 @@ config_locale(){
     color yellow "Choose your language"
     select LNAG in "en_GB.UTF-8" "zh_CN.UTF-8";do
         if [ $LANG == "zh_CN.UTF-8" ];then
-            echo -e "$LNAG UTF-8\nen_GB.UTF-8" > /etc/locale.gen
+            echo -e "$LNAG UTF-8\nen_GB.UTF-8 UTF-8" > /etc/locale.gen
         else
             echo "$LNAG UTF-8" > /etc/locale.gen
         fi
@@ -151,7 +151,7 @@ install_app(){
                     break
                 ;;
                 "Tencent")
-                    echo -e "[archlinuxcn]\nServer = https://mirrors.cloud.tencent.com/archlinux-cn/\$arch" >> /etc/pacman.conf
+                    echo -e "[archlinuxcn]\nServer = https://mirrors.cloud.tencent.com/archlinuxcn/\$arch" >> /etc/pacman.conf
                     break
                 ;;
                 *)
