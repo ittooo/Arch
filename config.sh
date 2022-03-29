@@ -173,7 +173,7 @@ install_app(){
             cd ..
             rm -rf package-query paru"
         fi
-        pacman -S --noconfirm networkmanager ttf-monaco ttf-lxgw-wenkai
+        pacman -S --noconfirm networkmanager ttf-monaco wqy-microhei
         systemctl enable NetworkManager
 }
 
